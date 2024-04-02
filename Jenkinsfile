@@ -20,7 +20,7 @@ pipeline {
         
         stage('create image for docker') {
             steps{
-              sh 'docker build -t amitkumar1907/Assignment_5:latest .'
+              sh 'docker build -t amitkumar1907/assignment_5:latest .'
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
             steps{
               withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                 sh 'echo "$DOCKER_PASSWORD" | docker login -u $DOCKER_USERNAME --password-stdin'
-                sh "docker push  amitkumar1907/Assignment_5:latest"
+                sh "docker push  amitkumar1907/assignment_5:latest"
               } 
             }
         }
