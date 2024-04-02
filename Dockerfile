@@ -2,15 +2,15 @@
 FROM  amazoncorretto:8u402-alpine3.19 
 
 
-RUN apk update && apk add sudo
+#RUN apk update && apk add sudo
 
 
 # Set the working directory in the container
 WORKDIR /app 
 
-COPY ./ /app 
+COPY ./target/*.jar ./ 
 
-RUN  sudo chmod +x mvnw && sudo ./mvnw clean install
+#RUN  sudo chmod +x mvnw && sudo ./mvnw clean install
 
 
 # Copy the packaged JAR file into the container at /app
