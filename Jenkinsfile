@@ -12,8 +12,8 @@ pipeline {
         } 
         stage("Build the code"){
             steps{
-              sh "chmod +x ./mvnw"
-              sh "./mvnw clean package"
+              
+              sh "mvn -f ./pom.xml clean package"
             }   
         }
         
